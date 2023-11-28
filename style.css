@@ -25,7 +25,7 @@ main {
     justify-content: center;
     align-items: center;
     padding: 1%;
-    background-color: rgb(171, 170, 170)
+    background-color: rgb(238, 130, 148)
 
 }
 
@@ -34,7 +34,7 @@ footer {
     padding: 10px;
     font-size: 150%;
     text-align: center;
-    color: rgb(207, 205, 205);
+    color: rgb(238, 130, 148);
 }
 
 #calculator {
