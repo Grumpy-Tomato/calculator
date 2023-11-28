@@ -92,11 +92,11 @@ footer {
     color: rgb(207, 205, 205)
 }
 
-#clear {
+#clear, #delete {
     color: crimson;
 }
 
-#parentheses, #percent, #divide, #multiply, #subtract, #add{
+#modulo, #divide, #multiply, #subtract, #add{
     color: lime
 }
 
