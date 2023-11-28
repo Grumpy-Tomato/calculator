@@ -1,0 +1,104 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    width: 100vw;
+    height: 100vh;
+}
+
+body {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+main {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1%;
+    background-color: rgb(171, 170, 170)
+
+}
+
+footer {
+    background-color: rgb(11, 11, 11);
+    padding: 10px;
+    font-size: 150%;
+    text-align: center;
+    color: rgb(207, 205, 205);
+}
+
+#calculator {
+    background-color: rgb(11, 11, 11);
+    width: 60vw;
+    height: 60vw;
+    min-height: 475px;
+    max-height: 600px;
+    max-width: 700px;
+    display: flex;
+    flex-direction: column;
+    padding: 1%;
+    border-radius: 10px;
+}
+
+#calculator-display {
+    height: 20%;
+    width: 90%;
+    background-color: rgb(46, 45, 45);
+    margin: auto;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    border-radius: 20px;
+
+}
+#calculator-display > p {
+    color: rgb(207, 205, 205);
+    font-size: 200%;
+    padding: 2.5%;
+}
+
+#calculator-buttons {
+    display: flex;
+    flex-direction: column;
+}
+
+.button-row {
+    height: 70%;
+    display: flex;
+    justify-content: center;
+    margin: 5%;
+    gap: 10px;
+}
+
+.button {
+    height: 100%;
+    max-height: 1000;
+    width: 22.5%;
+    font-size: 200%;
+    border-radius: 20px;
+    background-color: rgb(46, 45, 45);
+    color: rgb(207, 205, 205)
+}
+
+#clear {
+    color: crimson;
+}
+
+#parentheses, #percent, #divide, #multiply, #subtract, #add{
+    color: lime
+}
+
+#evaluate {
+    background-color: lime;
+    color: white;
+}
