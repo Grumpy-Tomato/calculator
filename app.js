@@ -140,11 +140,13 @@ moduloButton.addEventListener('click', () => {
 });
 
 equalsButton.addEventListener('click', () => {
-    lastNumber = runOperation(currentOperation, lastNumber, Number(calculator.textContent));
-    calculator.textContent = lastNumber;
-    evaluated = true;
-    lastNumber = 0;
-    currentOperation = "";
+    if(currentOperation) {
+        lastNumber = runOperation(currentOperation, lastNumber, Number(calculator.textContent));
+        calculator.textContent = lastNumber;
+        evaluated = true;
+        lastNumber = 0;
+        currentOperation = "";
+    }
 });
 
 negativeButton.addEventListener("click", () => {
