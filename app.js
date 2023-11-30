@@ -149,7 +149,7 @@ equalsButton.addEventListener('click', () => {
 
 negativeButton.addEventListener("click", () => {
     if(evaluated) {
-        calculator.textContent = "";
+        calculator.textContent = "-";
         evaluated = false;
     } else if (calculator.textContent === "") {
         calculator.textContent += "-";
