@@ -1,32 +1,27 @@
-// Operations
-const add = (num1, num2) => num1 + num2;
-const subtract = (num1, num2) => num1 - num2;
-const multiply = (num1, num2) => num1 * num2;
-const divide = (num1, num2) => num1 / num2;
-const modulo = (num1, num2) => num1 % num2;
+// Calculator Operations
 const runOperation = (operation, num1, num2) => {
     switch(operation) {
         case "add":
-            return add(num1, num2);
+            return num1 + num2;
             break;
         case "subtract":
-            return subtract(num1, num2);
+            return num1 - num2;
             break;
         case "multiply":
-            return multiply(num1, num2);
+            return num1 * num2;
             break;
         case "divide":
-            return divide(num1, num2);
+            return num1 / num2;
             break;
         case "modulo":
-            return modulo(num1, num2);
-            return 
+            return num1 % num2;
+            break;
         default:
             "ERROR";
     }
 }
 
-// numbers for adding
+// Global variables
 let lastNumber = 0;
 let currentOperation = "";
 let evaluated = false;
@@ -34,7 +29,7 @@ let evaluated = false;
 // Calculator display
 const calculator = document.querySelector('p');
 
-// buttons
+// Buttons
 const numberButtons = document.querySelectorAll(".number");
 const operationButtons = document.querySelectorAll('.operation')
 const clearButton = document.querySelector('#clear');
@@ -49,7 +44,7 @@ const zeroButton = document.querySelector('#zero');
 const equalsButton = document.querySelector("#evaluate");
 const decimalButton = document.querySelector('#decimal');
 
-// function to clear 
+// Clear display and reset global variables
 function resetScreen() {
     calculator.textContent = "";
     lastNumber = 0;
@@ -57,7 +52,7 @@ function resetScreen() {
     evaluated = false;
 }
 
-// Add numbers to calculator display
+// Add numbers that are clicked to the display
 numberButtons.forEach((button) => {
     button.addEventListener("click", () => {
         if(evaluated) {
@@ -70,6 +65,7 @@ numberButtons.forEach((button) => {
     });
 });
 
+// Run the operation on the stored number and the number on the display
 operationButtons.forEach((button) => {
     button.addEventListener("click", () => {
         if(currentOperation) {
@@ -79,15 +75,17 @@ operationButtons.forEach((button) => {
     });
 });
 
-// clear display and number variables
+// Clear the screen and reset variables when this button is clicked
 clearButton.addEventListener('click', () => {
     resetScreen();
 });
 
+// Delete characters one by one
 deleteButton.addEventListener('click', () => {
     calculator.textContent = calculator.textContent.toString().slice(0, -1)
 })
 
+// Set the current operation to 'add'
 addButton.addEventListener('click', () => {
     if (!currentOperation) {
         lastNumber = Number(calculator.textContent)
@@ -99,6 +97,7 @@ addButton.addEventListener('click', () => {
     
 });
 
+// Set the current operation to 'subtract'
 subtractButton.addEventListener('click', () => {
     if (!currentOperation) {
         lastNumber = Number(calculator.textContent)
@@ -109,6 +108,7 @@ subtractButton.addEventListener('click', () => {
     }
 });
 
+// Set the current operation to 'multiply'
 multiplyButton.addEventListener('click', () => {
     if (!currentOperation) {
         lastNumber = Number(calculator.textContent)
@@ -119,6 +119,7 @@ multiplyButton.addEventListener('click', () => {
     }
 });
 
+// Set the current operation to 'divide'
 divideButton.addEventListener('click', () => {
     if (!currentOperation) {
         lastNumber = Number(calculator.textContent)
@@ -129,6 +130,7 @@ divideButton.addEventListener('click', () => {
     }
 });
 
+// Set the current operation to 'modulo'
 moduloButton.addEventListener('click', () => {
     if (!currentOperation) {
         lastNumber = Number(calculator.textContent)
@@ -139,6 +141,7 @@ moduloButton.addEventListener('click', () => {
     }
 });
 
+// Display final value when hitting the equals button
 equalsButton.addEventListener('click', () => {
     if(currentOperation) {
         lastNumber = runOperation(currentOperation, lastNumber, Number(calculator.textContent));
@@ -149,6 +152,7 @@ equalsButton.addEventListener('click', () => {
     }
 });
 
+// Negative symbol button
 negativeButton.addEventListener("click", () => {
     if(evaluated) {
         calculator.textContent = "-";
@@ -158,12 +162,14 @@ negativeButton.addEventListener("click", () => {
     }
 });
 
+// Zero button
 zeroButton.addEventListener("click", () => {
     if(calculator.textContent !== "" && calculator.textContent.length <= 12) {
         calculator.textContent += zeroButton.textContent;
     }
 })
 
+// Decimal Button
 decimalButton.addEventListener("click", () => {
     if(evaluated) {
         calculator.textContent = "";
