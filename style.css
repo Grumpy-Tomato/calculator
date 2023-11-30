@@ -67,6 +67,7 @@ footer {
     color: rgb(207, 205, 205);
     font-size: 200%;
     padding: 2.5%;
+    min-height: 70px;
 }
 
 #calculator-buttons {

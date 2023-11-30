@@ -45,9 +45,11 @@ const multiplyButton = document.querySelector("#multiply")
 const divideButton = document.querySelector("#divide");
 const moduloButton = document.querySelector('#modulo');
 const negativeButton = document.querySelector('#negative');
+const zeroButton = document.querySelector('#zero');
 const equalsButton = document.querySelector("#evaluate");
+const decimalButton = document.querySelector('#decimal');
 
-// functions
+// function to clear 
 function resetScreen() {
     calculator.textContent = "";
     lastNumber = 0;
@@ -62,7 +64,9 @@ numberButtons.forEach((button) => {
             calculator.textContent = "";
             evaluated = false;
         }
-        calculator.textContent += button.textContent;
+        if (calculator.textContent.length <= 12) {
+            calculator.textContent += button.textContent;
+        }
     });
 });
 
@@ -81,10 +85,7 @@ clearButton.addEventListener('click', () => {
 });
 
 deleteButton.addEventListener('click', () => {
-   let calculatorText = calculator.textContent.split('')
-   calculatorText.splice(-1, 1);
-   calculatorText.join();
-   console.log(calculatorText);
+    calculator.textContent = calculator.textContent.toString().slice(0, -1)
 })
 
 addButton.addEventListener('click', () => {
@@ -154,3 +155,19 @@ negativeButton.addEventListener("click", () => {
         calculator.textContent += "-";
     }
 });
+
+zeroButton.addEventListener("click", () => {
+    if(calculator.textContent !== "" && calculator.textContent.length <= 12) {
+        calculator.textContent += zeroButton.textContent;
+    }
+})
+
+decimalButton.addEventListener("click", () => {
+    if(evaluated) {
+        calculator.textContent = "";
+        evaluated = false;
+    }
+    if(calculator.textContent.includes(".") === false && calculator.textContent.length <= 12) {
+        calculator.textContent += decimalButton.textContent;
+    }
+})
